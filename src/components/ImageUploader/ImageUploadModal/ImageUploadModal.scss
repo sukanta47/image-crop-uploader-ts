@@ -1,0 +1,148 @@
+$theme_color_primary: #8f1ca3;
+$theme_bgcolor_primary: #8f1ca3;
+$theme_color_primary_light: #8f1ca38b;
+$theme_color_primary_border: #8f1ca35f;
+
+.upload-pic-container.modal-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 34rem;
+  height: 382px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  outline: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  .edit-image-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #cbd0dc;
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    svg {
+      margin-top: 2.5px;
+      margin-left: 0.5px;
+    }
+  }
+  .title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-left: 15px;
+    padding-bottom: 10px;
+    .title-section-head {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      padding: 0px 0px 0px 20px;
+    }
+
+    .title-section-para {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 18px;
+      opacity:0.4;
+      padding: 0px 0px 0px 20px;
+    }
+  }
+
+  .header-container {
+    display: flex;
+    border-bottom: 2px solid $theme_color_primary_border;
+    align-items: center;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 30px;
+    background-color: #e2f8ed;
+  }
+  .btn-p {
+    background-color: $theme_color_primary;
+    color: white;
+    border: none;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .btn-s {
+    border: 1px solid $theme_color_primary;
+    background-color: white;
+    color: $theme_color_primary;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .modal-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .upload-box {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px dashed #cbd0dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    &:hover,
+    &.drag-enter {
+      transition: 0.4s;
+      transition-timing-function: ease-in-out;
+      border-color: $theme_color_primary;
+      box-shadow: 0px 0px 8px 3px #ebecea;
+    }
+  }
+
+  .preview-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid $theme_color_primary;
+  }
+
+  .upload-info {
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+
+  .upload-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+.reactEasyCrop_CropArea {
+  width: 100% !important;
+  height: 100% !important;
+}
