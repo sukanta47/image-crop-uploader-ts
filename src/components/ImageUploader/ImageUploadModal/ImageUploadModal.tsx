@@ -137,7 +137,7 @@ const ImageUploadModal = ({ handleClose, openModal }: ImageUploadProps) => {
           <div className="title-section">
             <h3 className="title-section-head">Upload Photo</h3>
             <p className="title-section-para">
-              Upload a photo of yourself to personalize your account loki
+              Upload a photo of yourself to personalize your account
             </p>
           </div>
           <Tooltip title="Close">

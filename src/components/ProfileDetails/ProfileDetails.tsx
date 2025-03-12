@@ -31,7 +31,7 @@ const ProfileDetails: React.FC = () => {
         <img
           src={profileImage}
           alt="Profile"
-          className="w-32 h-32 rounded-full mb-4 shadow-md"
+          className="w-38 h-38 rounded-full my-4 shadow-md"
         />
         <Link
           className="bg-gray-200 hover:bg-gray-300 rounded-full p-1 cursor-pointer relative"
