@@ -13,17 +13,24 @@ import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 
 import ImageCropper from "../ImageCropper/ImageCropper";
 import { getCroppedImg, blobToBase64 } from "../../../helpers/helper.ts";
+import { Area } from "react-easy-crop";
 
 interface ImageUploadProps {
   handleClose: () => void;
-  openModal:boolean;
+  openModal: boolean;
 }
+export interface ImageProperties {
+  zoom: number;
+  rotation: number;
+  croppedAreaPixels: Area;
+}
+
 const ImageUploadModal = ({ handleClose, openModal }: ImageUploadProps) => {
   const [dragEnter, setDragEnter] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [error, setError] = useState("");
   const uploadProfilePicInputRef = useRef<HTMLInputElement>(null);
-  const [imageProperties, setImageProperties] = useState({
+  const [imageProperties, setImageProperties] = useState<ImageProperties>({
     zoom: 1,
     rotation: 0,
     croppedAreaPixels: {
@@ -130,7 +137,7 @@ const ImageUploadModal = ({ handleClose, openModal }: ImageUploadProps) => {
           <div className="title-section">
             <h3 className="title-section-head">Upload Photo</h3>
             <p className="title-section-para">
-              Upload a photo of yourself to personalize your account
+              Upload a photo of yourself to personalize your account loki
             </p>
           </div>
           <Tooltip title="Close">
@@ -179,20 +186,36 @@ const ImageUploadModal = ({ handleClose, openModal }: ImageUploadProps) => {
         <div className="upload-footer">
           {selectedImage === null ? (
             <>
-              <Button onClick={handleClose} variant="outlined" className="btn-s">
+              <Button
+                onClick={handleClose}
+                variant="outlined"
+                className="btn-s"
+              >
                 Cancel
               </Button>
 
-              <Button  variant="contained" className="btn-p" onClick={() => attachButtonHandler()}>
+              <Button
+                variant="contained"
+                className="btn-p"
+                onClick={() => attachButtonHandler()}
+              >
                 Attach Photo
               </Button>
             </>
           ) : (
             <>
-              <Button onClick={handleChangeImage} variant="outlined" className="btn-s">
+              <Button
+                onClick={handleChangeImage}
+                variant="outlined"
+                className="btn-s"
+              >
                 Change Photo
               </Button>
-              <Button onClick={handleSubmit} variant="contained" className="btn-p">
+              <Button
+                onClick={handleSubmit}
+                variant="contained"
+                className="btn-p"
+              >
                 Upload Photo
               </Button>
             </>

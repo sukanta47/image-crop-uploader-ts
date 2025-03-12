@@ -1,40 +1,8 @@
 import React, { useEffect, useState } from "react";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
-import profilePic from "@src/assets/images/profile.jpg";
 import { Link } from "@mui/material";
 import ImageUploadModal from "../ImageUploader/ImageUploadModal/ImageUploadModal";
-
-interface ProfileData {
-  name: string;
-  image: string;
-  proficiency: string;
-  skills: string[];
-  education: { degree: string; institution: string; year: string }[];
-  workExperience: { role: string; company: string; duration: string }[];
-}
-
-const profile: ProfileData = {
-  name: "John Doe",
-  image: profilePic,
-  proficiency: "Senior Frontend Developer",
-  skills: ["React", "TypeScript", "Tailwind CSS", "Redux", "Next.js"],
-  education: [
-    { degree: "B.Sc. Computer Science", institution: "MIT", year: "2018" },
-    {
-      degree: "M.Sc. Software Engineering",
-      institution: "Harvard",
-      year: "2020",
-    },
-  ],
-  workExperience: [
-    { role: "Frontend Developer", company: "Google", duration: "2018 - 2020" },
-    {
-      role: "Senior Developer",
-      company: "Microsoft",
-      duration: "2020 - Present",
-    },
-  ],
-};
+import { profile } from "./ProfileData";
 
 const ProfileDetails: React.FC = () => {
   const [profileImage, setProfileImage] = useState<string>();
@@ -58,7 +26,7 @@ const ProfileDetails: React.FC = () => {
 
   return (
     <div className="flex flex-col md:flex-row bg-gray-100 p-5 min-h-screen gap-5 w-full">
-      {/* Left Section */}
+      {/* ---------------Left Section---------------- */}
       <div className="md:w-1/2 bg-white p-5 shadow-lg rounded-lg flex flex-col items-center text-center">
         <img
           src={profileImage}
@@ -92,7 +60,7 @@ const ProfileDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* Right Section */}
+      {/* ---------------Right Section--------------- */}
       <div className="md:w-1/2 bg-white p-6 shadow-lg rounded-lg">
         <h3 className="text-xl font-semibold">Education</h3>
         <ul className="mt-3 space-y-2">

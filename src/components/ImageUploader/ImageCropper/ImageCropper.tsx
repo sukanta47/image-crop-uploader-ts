@@ -1,5 +1,5 @@
-import { Button, IconButton, Slider, Tooltip } from "@mui/material";
-import React, { useCallback, useEffect, useState } from "react";
+import { IconButton, Slider, Tooltip } from "@mui/material";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Cropper, { Area, Point } from "react-easy-crop";
 import ZoomInRoundedIcon from "@mui/icons-material/ZoomInRounded";
 import ZoomOutRoundedIcon from "@mui/icons-material/ZoomOutRounded";
@@ -8,13 +8,12 @@ import RotateRightRoundedIcon from "@mui/icons-material/Rotate90DegreesCwRounded
 import OpenWithIcon from "@mui/icons-material/OpenWith";
 
 import "./ImageCropper.scss";
+import { ImageProperties } from "../ImageUploadModal/ImageUploadModal";
 
 interface ImageCropperProps {
   uploadedImage: string;
   setImageProperties: (props: any) => void;
 }
-
-
 
 const ImageCropper = ({
   uploadedImage,
@@ -23,11 +22,25 @@ const ImageCropper = ({
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 });
   const [zoom, setZoom] = useState<number>(1);
   const [rotation, setRotation] = useState<number>(0);
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area>();
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area>({
+    height: 0,
+    width: 0,
+    x: 0,
+    y: 0,
+  });
 
   useEffect(() => {
-    setImageProperties({ zoom, rotation, croppedAreaPixels });
-  }, [croppedAreaPixels, rotation, zoom, setImageProperties]);
+    setImageProperties((prevVal: ImageProperties) => {
+      if (
+        prevVal.zoom !== zoom ||
+        prevVal.rotation !== rotation ||
+        prevVal.croppedAreaPixels !== croppedAreaPixels
+      ) {
+        return { zoom, rotation, croppedAreaPixels };
+      }
+      return prevVal;
+    });
+  }, [croppedAreaPixels, rotation, zoom]);
 
   const onCropComplete = useCallback(
     (croppedArea: Area, croppedAreaPixels: Area): void => {
@@ -83,7 +96,10 @@ const ImageCropper = ({
       <div className="flex gap-4 control-container">
         <div className="flex gap-2 items-center">
           <Tooltip title="Zoom Out">
-            <IconButton onClick={(e) => handleZoomClick("zoomout")} sx={{outline:"none" }}>
+            <IconButton
+              onClick={(e) => handleZoomClick("zoomout")}
+              sx={{ outline: "none" }}
+            >
               <ZoomOutRoundedIcon className="control-icon" />
             </IconButton>
           </Tooltip>
