@@ -294,7 +294,6 @@ This component selects, crops, and uploads the profile picture.
 ```
 import { useRef, useState } from "react";
 import "./ImageUploadModal.scss";
-import PropTypes from "prop-types";
 import {
   Box,
   Button,
@@ -495,10 +494,6 @@ const ImageUploadModal = ({ handleClose, openModal }: ImageUploadProps) => {
       </Box>
     </Modal>
   );
-};
-
-ImageUploadModal.propTypes = {
-  handleClose: PropTypes.func,
 };
 
 export default ImageUploadModal;
