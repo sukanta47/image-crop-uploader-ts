@@ -3,7 +3,7 @@ Profile picture uploads are an essential feature in modern web applications, ena
 
 In this tutorial, we’ll create a **React + TypeScript** component that allows users to **effortlessly select, crop, adjust, and upload** their profile pictures using **react-easy-crop**. 🚀  
 
-#### Looking for **React + JavaScript** version of this?
+### Looking for **React + JavaScript** version of this? 
 #### Check my other repository for a detailed article: [GitHub - image-crop-uploader-js](https://github.com/sukanta47/image-crop-uploader-js) 
 
 ---
